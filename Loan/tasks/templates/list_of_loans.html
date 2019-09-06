@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loans</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>history_date</th>
+        <th>body</th>
+        <th>loan_id</th>
+    </tr>
+
+    {% for body in bodies %}
+    <tr>
+        <td>{{body.id}}</td>
+        <td>{{body.history_date|date:"Y-m-d"}}</td>
+        <td>{{body.body}}</td>
+        <td>{{body.loan_id_id}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>Change_day</th>
+        <th>Summ</th>
+        <th>loan_id</th>
+    </tr>
+    {% for day in days %}
+    <tr>
+        <td>{{day.id}}</td>
+        <td>{{day.charge_date|date:"Y-m-d"}}</td>>
+        <td>{{day.summ}}</td>
+        <td>{{day.loan_id_id}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

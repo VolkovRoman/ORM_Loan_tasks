@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>last_charge_date</th>
+        <th>loan_id</th>
+        <th>body</th>
+        <th>total_charges</th>
+    </tr>
+
+    {% block content %}
+    {% for f in first %}
+    <tr>
+        <td>{{ f.last_charge_date|date:"Y-m-d" }}</td>
+        <td>{{ f.id }}</td>
+        <td>{{ f.bodyhistory__body }}</td>
+        <td>{{ f.total_charges }}</td>
+    </tr>
+    {% endfor %}
+    <ul>{{first.query}}</ul>
+    <ul>{{first}}</ul>
+    <p></p>
+
+</table>
+<p></p>
+<table border="2">
+    <tr>
+        <th>id</th>
+        <th>Charge_day</th>
+        <th>Summ</th>
+        <th>loan_id</th>
+        <th>summ_mult</th>
+    </tr>
+
+    {% for s in second %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.charge_date|date:"Y-m-d"}}</td>>
+        <td>{{s.summ}}</td>
+        <td>{{s.loan_id_id}}</td>
+        <td>{{s.summ_mult}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<table border="3">
+    <tr>
+        <th>id</th>
+        <th>summ_initial</th>
+        <th>period</th>
+
+    </tr>
+
+    {% for t in third %}
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{{t.summ_initial}}</td>>
+        <td>{{t.period}}</td>
+    </tr>
+    {% endfor %}
+    <ul>{{third.query}}</ul>
+</table>
+    {% endblock %}
+</body>
+</html>
