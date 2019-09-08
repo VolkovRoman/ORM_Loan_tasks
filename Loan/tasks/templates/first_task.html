@@ -64,6 +64,50 @@
     {% endfor %}
     <ul>{{third.query}}</ul>
 </table>
-    {% endblock %}
+<table border="4">
+    <tr>
+        <th>id</th>
+        <th>history_date</th>
+        <th>body</th>
+        <th>chargings_summ</th>
+
+    </tr>
+
+    {% for fo in fourth %}
+    <tr>
+        <td>{{fo.bodyhistory__id}}</td>
+        <td>{{fo.bodyhistory__history_date|date:"Y-m-d"}}</td>>
+        <td>{{fo.bodyhistory__body}}</td>
+        <td>{{fo.chargings_summ}}</td>
+    </tr>
+    {% endfor %}
+    <ul>{{fourth.query}}</ul>
+</table>
+
+
+<ul>Task 5.1</ul>
+{% for fift in fifth_1 %}
+<ul>id:{{fift.id}}</ul>
+{% endfor %}
+<ul>{{fifth_1.query}}</ul>
+
+<ul>Task 5.2</ul>
+{% for fif in fifth_2 %}
+<ul>id:{{fif.id}}</ul>>
+{% endfor %}
+<ul>{{fifth_2.query}}</ul>
+
+<ul>Task 5.3</ul>
+{% for fi in fifth_3 %}
+<ul>id: {{fi.id}}</ul>
+{% endfor %}
+<ul>{{fifth_3.query}}</ul>
+
+<ul>Task 5.4</ul>
+{% for f in fifth_4 %}
+<ul>id: {{fi.id}}</ul>
+{% endfor %}
+<ul>{{fifth_4.query}}</ul>
+{% endblock %}
 </body>
 </html>
