@@ -4,10 +4,11 @@ from django.db.models import Sum, Max, F, Count, Min
 
 
 def first_task(request):
-    # 1st and 4th in process
-    first = Loan.objects.select_related()\
-        .annotate(total_charges=F('daycharge__summ')*Count('daycharge__charge_date', distinct=True), last_charge_date=Max('daycharge__charge_date'),
-                  bodyhistory__body=F('bodyhistory__body'))\
+    # 4th in process
+    first = Loan.objects.select_related().filter(daycharge__charge_date=F('bodyhistory__history_date'))\
+        .annotate(total_charges=F('daycharge__summ')*Count('daycharge__charge_date', distinct=True),
+                  last_charge_date=Max('daycharge__charge_date'))\
+        .values('total_charges', 'last_charge_date', 'id', "bodyhistory__body")\
         .order_by('last_charge_date')
 
     second = DayCharge.objects.annotate(summ_mult=F('summ')*F('loan_id')/100)
